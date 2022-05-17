@@ -9,10 +9,20 @@ $contasCorrentes = [
         'titular' => 'Lucas',
         'saldo' => 2000
     ], 
-    122 => [
+    123 => [
         'titular' => 'Dias',
-        'saldo' => 3000
+        'saldo' => 4000
     ]
+];
+
+$contasCorrentes[122] = [
+    'titular' => 'Teixeira',
+    'saldo' => 3000
+];
+
+$contasCorrentes[] = [
+    'titular' => 'Paulo',
+    'saldo' => 100
 ];
 
 foreach($contasCorrentes as $conta) {
