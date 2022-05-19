@@ -21,6 +21,8 @@ $contasCorrentes['120'] = sacar($contasCorrentes['120'], 500);
 
 $contasCorrentes['121'] = depositar($contasCorrentes['121'], 1000);
 
+unset($contasCorrentes[123]);
+
 titularComLetrasMaiusculas($contasCorrentes[120]);
 
 foreach($contasCorrentes as $chave => $conta) {
