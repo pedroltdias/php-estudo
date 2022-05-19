@@ -6,4 +6,10 @@ $array = [
     3 => 'três'
 ];
 
-var_dump($array);
+// var_dump($array);
+
+foreach ($array as $numeral => $nomeNumero) {
+    echo "$numeral => $nomeNumero" . PHP_EOL;
+}
+
+echo count($array);
