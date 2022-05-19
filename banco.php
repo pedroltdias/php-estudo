@@ -17,7 +17,11 @@ $contasCorrentes = [
     ]
 ];
 
+echo "<ul>";
+
 foreach($contasCorrentes as $chave => $conta) {
-    ['titular' => $titular, 'saldo' => $saldo] = $conta;
-    exibeMensagem("$chave => $titular, Saldo: $saldo");
+
+    exibeConta($chave, $conta);
 }
+
+echo "</ul>";
