@@ -24,5 +24,6 @@ $contasCorrentes['121'] = depositar($contasCorrentes['121'], 1000);
 titularComLetrasMaiusculas($contasCorrentes[120]);
 
 foreach($contasCorrentes as $chave => $conta) {
-    exibeMensagem("$chave => {$conta['titular']}, Saldo: {$conta['saldo']}");
+    ['titular' => $titular, 'saldo' => $saldo] = $conta;
+    exibeMensagem("$chave => $titular, Saldo: $saldo");
 }
