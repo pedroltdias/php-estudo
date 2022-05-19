@@ -1,6 +1,6 @@
 <?php
 
-include 'funcoes.php';
+require 'funcoes.php';
 
 $contasCorrentes = [
     120 => [
