@@ -1,17 +1,25 @@
 <?php
 
 $notas = [
-    10,
-    8,
-    9,
-    7
+    [
+        'aluno' => 'Maria',
+        'nota' => 10
+    ],
+    [
+        'aluno' => 'Vinicius',
+        'nota' => 6
+    ],
+    [
+        'aluno' => 'Ana',
+        'nota' => 9
+    ],
+
 ];
 
-$notasOrdenadas = $notas;
-sort($notasOrdenadas); //Modifica a variavel!
+function ordenaNotas(array $nota1, array $nota2) : int {
+    return $nota1['nota'] <=> $nota2['nota'];
+}
 
-echo "Desordenadas: ";
+usort($notas, 'ordenaNotas');
+
 var_dump($notas);
-
-echo "Ordenadas: ";
-var_dump($notasOrdenadas);
