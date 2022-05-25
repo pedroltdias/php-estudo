@@ -10,5 +10,13 @@ spl_autoload_register (function ($classe){
         return;
     };
 
-    var_dump($classe);
+    $arquivo = $diretorio;
+
+    $namespace = substr($classe, strlen($prefixo));
+
+    $namespace_arquivo = str_replace('\\', DIRECTORY_SEPARATOR, $namespace);
+
+    $arquivo = $diretorio . $namespace_arquivo . '.php';
+
+    var_dump($arquivo);
 });
