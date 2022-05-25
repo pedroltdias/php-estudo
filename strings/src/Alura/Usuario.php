@@ -49,7 +49,7 @@ class Usuario
 
     private function validaSenha(string $senha) : void
     {
-        $tamanhoSenha = strlen($senha);
+        $tamanhoSenha = strlen(trim($senha));
 
         if ($tamanhoSenha >= 6) {
             $this->senha = $senha;
