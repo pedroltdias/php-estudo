@@ -1,7 +1,6 @@
 <?php
 
-require 'Usuario.php';
-require 'Contato.php';
+require 'autoload.php';
 
 $usuario = new \Alura\Usuario($_POST['nome']);
 $contato = new \Alura\Contato($_POST['email']);
