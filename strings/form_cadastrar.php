@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <link rel="stylesheet" href="bootstrap.min.css">
     <title>Curso Strings</title>
 </head>
+
 <body>
-<div class="mx-5 my-5">
-    <h1>Formulário de cadastro loja virtual</h1>
+    <div class="mx-5 my-5">
+        <h1>Formulário de cadastro loja virtual</h1>
 
         <form action="/cadastro.php" method="post">
             <div class="form-group">
@@ -42,7 +44,8 @@
 
             <div class="form-group">
                 <label for="endereco">Endereço: </label>
-                <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Digite o seu endereço">
+                <input type="text" id="endereco" name="endereco" class="form-control"
+                    placeholder="Digite o seu endereço">
             </div>
 
             <div class="form-group">
@@ -55,4 +58,5 @@
     </div>
 
 </body>
+
 </html>
