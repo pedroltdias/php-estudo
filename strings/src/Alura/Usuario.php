@@ -9,10 +9,28 @@ class Usuario
     private $sobrenome;
     private $senha;
 
-    public function __construct(string $nome, string $senha)
+    public function __construct(string $nome, string $senha, string $genero)
     {
         $this->setNomeSobrenome($nome);
         $this->validaSenha($senha);
+        $this->adicionaTratamentoAoSobrenome($nome, $genero);
+
+    }
+
+    private function adicionaTratamentoAoSobrenome(string $nome, string $genero)
+    {
+        if ($genero === 'M') {
+            $this->tratamento = preg_replace('/^(\w+)\b/', 'Sr.', $nome, 1);
+        }
+    
+        if ($genero === 'F') {
+            $this->tratamento = preg_replace('/^(\w+)\b/', 'Srª.', $nome, 1);
+        }
+    }
+
+    public function getTratamento(): string
+    {
+        return $this->tratamento;
     }
 
     private function setNomeSobrenome(string $nome)
