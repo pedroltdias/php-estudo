@@ -6,8 +6,10 @@ class Contato
 {
 
     private $email;
+    private $endereco;
+    private $cep;
 
-    public function __construct(string $email)
+    public function __construct(string $email, string $endereco, string $cep)
     {
         $this->email = $email;
 
@@ -16,6 +18,9 @@ class Contato
         } else {
             $this->setEmail("Email inválido.");
         }
+
+        $this->endereco = $endereco;
+        $this->cep = $cep;
     }
 
     public function setEmail(string $email) : void
@@ -42,6 +47,12 @@ class Contato
     public function getEmail() : string
     {
         return $this->email;
+    }
+
+    public function getEnderecoCep() : string
+    {
+        $enderecoCep = [$this->endereco, $this->cep];
+        return implode(" - ", $enderecoCep);
     }
 
 
