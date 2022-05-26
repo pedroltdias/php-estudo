@@ -52,7 +52,7 @@ class Conta
         return $this->saldo;
     }
 
-    public function getNumeroDeContas() : int  
+    public static function getNumeroDeContas() : int  
     {
         return self::$numeroDeContas;
     }
