@@ -2,9 +2,9 @@
 
 class Conta 
 {
-    public string $cpfTitular;      //é possível tipar ou não variaveis
-    public string $nomeTitular;
-    public float $saldo;
+    private string $cpfTitular;      //é possível tipar ou não variaveis
+    private string $nomeTitular;
+    private float $saldo;
 
     public function sacar(float $valorASacar) : void
     {
