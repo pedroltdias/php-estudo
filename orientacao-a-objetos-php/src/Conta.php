@@ -2,13 +2,26 @@
 
 class Conta 
 {
-    private string $cpfTitular;      //é possível tipar ou não variaveis
-    private string $nomeTitular;
+    private Titular $titular;
     private float $saldo;
+    private static int $numeroDeContas = 0;
+
+    public function __construct(Titular $titular)
+    {
+        $this->titular = $titular;
+        $this->saldo = 0;
+
+        self::$numeroDeContas++;
+    }
+
+    public function __destruct()
+    {
+        self::$numeroDeContas--;
+    }
 
     public function saca(float $valorASacar) : void
     {
-        if ($valorASacar > $this->$saldo) {
+        if ($valorASacar > $this->saldo) {
             echo "Saldo indisponível!";
             return;
         }
@@ -39,23 +52,18 @@ class Conta
         return $this->saldo;
     }
 
-    public function getCpfTitular() : string
+    public function getNumeroDeContas() : int  
     {
-        return $this->cpfTitular;
+        return self::$numeroDeContas;
     }
 
-    public function getNomeTitular() : string
+    public function getCpfTitular() : string 
     {
-        return $this->nomeTitular;
+        return $this->titular->getCpf();
     }
 
-    public function setCpfTitular(string $cpfTitular) : void
+    public function getNomeTitular() : string 
     {
-        $this->cpfTitular = $cpfTitular;
-    }
-
-    public function setNomeTitular(string $nomeTitular) :void
-    {
-        $this->nomeTitular = $nomeTitular;
+        return $this->titular->getNome();
     }
 }
