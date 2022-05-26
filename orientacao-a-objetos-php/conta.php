@@ -23,4 +23,14 @@ class Conta
             $this->saldo += $valorADepositar;
         }
     }
+
+    public function transferir(float $valorATransferir, Conta $contaDestino) : void
+    {
+        if ($valorATransferir > $this->saldo) {
+            echo "Saldo indisponível!";
+        } else {
+            $this->sacar($valorATransferir);
+            $contaDestino->depositar($valorATransferir);
+        }
+    }
 }
