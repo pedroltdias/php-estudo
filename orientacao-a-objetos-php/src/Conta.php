@@ -2,16 +2,13 @@
 
 class Conta 
 {
-    private string $cpfTitular;      //é possível tipar ou não variaveis
-    private string $nomeTitular;
+    private Titular $titular;
     private float $saldo;
     private static int $numeroDeContas = 0;
 
-    public function __construct(string $cpfTitular, string $nomeTitular)
+    public function __construct(Titular $titular)
     {
-        $this->cpfTitular = $cpfTitular;
-        $this->validaNomeTitular($nomeTitular);
-        $this->nomeTitular = $nomeTitular;
+        $this->titular = $titular;
         $this->saldo = 0;
 
         self::$numeroDeContas++;
