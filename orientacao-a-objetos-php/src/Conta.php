@@ -52,24 +52,6 @@ class Conta
         return $this->saldo;
     }
 
-    public function getCpfTitular() : string
-    {
-        return $this->cpfTitular;
-    }
-
-    public function getNomeTitular() : string
-    {
-        return $this->nomeTitular;
-    }
-
-    private function validaNomeTitular(string $nomeTitular) : void
-    {
-        if (strlen($nomeTitular) < 5) {
-            echo "Nome precisa ter pelo menos 5 caracteres";
-            exit();
-        }
-    }
-
     public function getNumeroDeContas() : int  
     {
         return self::$numeroDeContas;

@@ -8,6 +8,7 @@ class Titular
     public function __construct(string $cpf, string $nome)
     {
         $this->cpf = $cpf;
+        $this->validaNomeTitular($nome);
         $this->nome = $nome;
     }
 
@@ -19,5 +20,13 @@ class Titular
     public function getNome() : string 
     {
         return $this->nome;
+    }
+
+    private function validaNomeTitular(string $nomeTitular) : void
+    {
+        if (strlen($nomeTitular) < 5) {
+            echo "Nome precisa ter pelo menos 5 caracteres";
+            exit();
+        }
     }
 }
