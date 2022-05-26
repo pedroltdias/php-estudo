@@ -56,13 +56,4 @@ class Conta
         return $this->nomeTitular;
     }
 
-    public function setCpfTitular(string $cpfTitular) : void
-    {
-        $this->cpfTitular = $cpfTitular;
-    }
-
-    public function setNomeTitular(string $nomeTitular) :void
-    {
-        $this->nomeTitular = $nomeTitular;
-    }
 }
