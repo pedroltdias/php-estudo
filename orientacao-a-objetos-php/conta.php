@@ -5,6 +5,7 @@ class Conta
     private string $cpfTitular;      //é possível tipar ou não variaveis
     private string $nomeTitular;
     private float $saldo;
+    private static int $numeroDeContas = 0;
 
     public function __construct(string $cpfTitular, string $nomeTitular)
     {
@@ -12,6 +13,8 @@ class Conta
         $this->validaNomeTitular($nomeTitular);
         $this->nomeTitular = $nomeTitular;
         $this->saldo = 0;
+
+        self::$numeroDeContas++;
     }
 
     public function saca(float $valorASacar) : void
@@ -63,5 +66,10 @@ class Conta
             echo "Nome precisa ter pelo menos 5 caracteres";
             exit();
         }
+    }
+
+    public function getNumeroDeContas() : int  
+    {
+        return self::$numeroDeContas;
     }
 }
