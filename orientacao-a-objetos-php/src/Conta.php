@@ -21,7 +21,7 @@ class Conta
 
     public function saca(float $valorASacar) : void
     {
-        if ($valorASacar > $this->$saldo) {
+        if ($valorASacar > $this->saldo) {
             echo "Saldo indisponível!";
             return;
         }
@@ -55,5 +55,15 @@ class Conta
     public function getNumeroDeContas() : int  
     {
         return self::$numeroDeContas;
+    }
+
+    public function getCpfTitular() : string 
+    {
+        return $this->titular->getCpf();
+    }
+
+    public function getNomeTitular() : string 
+    {
+        return $this->titular->getNome();
     }
 }
