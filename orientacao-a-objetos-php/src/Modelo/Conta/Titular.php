@@ -2,6 +2,10 @@
 
 namespace Alura\Banco\Modelo\Conta;
 
+use Alura\Banco\Modelo\Pessoa;
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Endereco;
+
 class Titular extends Pessoa
 {
     private Endereco $endereco;
@@ -10,16 +14,6 @@ class Titular extends Pessoa
     {
         parent::__construct($cpf, $nome);
         $this->endereco = $endereco;
-    }
-
-    public function getCpf() : string 
-    {
-        return $this->cpf->getNumero();
-    }
-
-    public function getNome() : string 
-    {
-        return $this->nome;
     }
 
     public function getEndereco() : Endereco
