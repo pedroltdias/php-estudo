@@ -1,5 +1,7 @@
 <?php
 
+namespace Modelo\Conta;
+
 class Conta 
 {
     private Titular $titular;
