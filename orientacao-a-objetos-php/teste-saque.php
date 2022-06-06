@@ -1,6 +1,6 @@
 <?php
 
-use Alura\Banco\Modelo\Conta\{Conta, ContaCorrente, ContaPoupanca, Titular};
+use Alura\Banco\Modelo\Conta\{ContaPoupanca, ContaCorrente, Titular};
 use Alura\Banco\Modelo\{CPF, Endereco};
 
 require_once 'autoload.php';
