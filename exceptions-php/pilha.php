@@ -3,6 +3,8 @@
 function funcao1()
 {
     echo 'Inicio da funcao 1' . PHP_EOL;
+    // $arrayFixo = new SplFixedArray(2);   runtime exception
+    // $arrayFixo[3] = 'Valor';
     funcao2();
     echo 'Fim da funcao 1' . PHP_EOL;
 }
