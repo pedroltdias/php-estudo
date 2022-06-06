@@ -8,6 +8,8 @@ function funcao1()
         funcao2();
     } catch (RuntimeException | DivisionByZeroError $problema) {
         echo $problema->getMessage() . PHP_EOL;
+        echo $problema->getLine() . PHP_EOL;
+        echo $problema->getTraceAsString() . PHP_EOL;
     }
 
     
@@ -18,13 +20,9 @@ function funcao2()
 {
     echo 'Inicio da funcao 2' . PHP_EOL;
 
-    $divisao = intdiv(5, 0); 
-    $arrayFixo = new SplFixedArray(2);   
-    $arrayFixo[3] = 'Valor';
+    $exception = new RuntimeException();
+    throw $exception;
 
-    for ($i=0; $i <= 5; $i++) { 
-        echo $i . PHP_EOL;
-    }
     echo 'Fim da funcao 2' . PHP_EOL;
 }
 
