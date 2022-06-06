@@ -3,9 +3,15 @@
 function funcao1()
 {
     echo 'Inicio da funcao 1' . PHP_EOL;
-    // $arrayFixo = new SplFixedArray(2);   
-    // $arrayFixo[3] = 'Valor';
-    $divisao = intdiv(5, 0); // DivisionByZeroError exception
+    
+    try{
+        $arrayFixo = new SplFixedArray(2);   
+        $arrayFixo[3] = 'Valor';
+    } catch (RuntimeException $problema) {
+        echo 'Aconteceu um erro na funcao 1' . PHP_EOL;
+    }
+
+    // $divisao = intdiv(5, 0); 
     funcao2();
     echo 'Fim da funcao 1' . PHP_EOL;
 }
