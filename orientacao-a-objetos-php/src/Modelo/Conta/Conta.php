@@ -2,6 +2,8 @@
 
 namespace Alura\Banco\Modelo\Conta;
 
+use DomainException;
+
 abstract class Conta 
 {
     private Titular $titular;
@@ -26,8 +28,7 @@ abstract class Conta
         $tarifaSaque = $valorASacar * $this->percentualTarifa();
         $valorSaque = $valorASacar + $tarifaSaque;
         if ($valorSaque > $this->saldo) {
-            echo "Saldo indisponível!";
-            return;
+            throw new SaldoInsuficienteException();
         }
         $this->saldo -= $valorSaque;
     }
