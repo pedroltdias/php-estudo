@@ -6,10 +6,8 @@ function funcao1()
 
     try{
         funcao2();
-    } catch (RuntimeException $problema) {
-        echo '--> Funcao 1 resolvendo runtimeexception na funcao 2' . PHP_EOL;
-    } catch (DivisionByZeroError $erro) {
-        echo '--> Funcao 1 resolvendo divisao por 0 na funcao 2' . PHP_EOL;
+    } catch (RuntimeException | DivisionByZeroError $problema) {
+        echo '--> Funcao 1 resolvendo exception na funcao 2' . PHP_EOL;
     }
 
     
