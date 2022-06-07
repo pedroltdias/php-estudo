@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 
-Teste::teste();
+Teste::metodo();
 exit();
 
 use Alura\BuscadorDeCursos\Buscador;
