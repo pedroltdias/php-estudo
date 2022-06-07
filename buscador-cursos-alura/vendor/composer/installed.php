@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd55a9430d5fd34cc7a2dda9f38cc34fb2a5ae343',
+        'reference' => 'bfb2c2bbac0bcc3ebc88c7184d6adb0442a5f705',
         'name' => 'pedroltdias/buscador-de-cursos',
         'dev' => true,
     ),
@@ -52,7 +52,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd55a9430d5fd34cc7a2dda9f38cc34fb2a5ae343',
+            'reference' => 'bfb2c2bbac0bcc3ebc88c7184d6adb0442a5f705',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
@@ -107,6 +107,15 @@
             'install_path' => __DIR__ . '/../ralouphie/getallheaders',
             'aliases' => array(),
             'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+            'dev_requirement' => false,
+        ),
+        'symfony/css-selector' => array(
+            'pretty_version' => 'v6.1.0',
+            'version' => '6.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/css-selector',
+            'aliases' => array(),
+            'reference' => '05c40f02f621609404b8820ff8bc39acb46e19cf',
             'dev_requirement' => false,
         ),
         'symfony/deprecation-contracts' => array(
