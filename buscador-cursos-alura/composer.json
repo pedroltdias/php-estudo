@@ -1,0 +1,12 @@
+{
+    "name": "pedroltdias/buscador-de-cursos",
+    "description": "Biblioteca para buscar cursos no site da Alura",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Pedro Dias",
+            "email": "pedroltdias@gmail.com"
+        }
+    ],
+    "require": {}
+}
