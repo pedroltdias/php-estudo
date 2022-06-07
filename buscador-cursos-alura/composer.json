@@ -8,5 +8,8 @@
             "email": "pedroltdias@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.4",
+        "symfony/dom-crawler": "^6.1"
+    }
 }
