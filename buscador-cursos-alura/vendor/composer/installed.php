@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5682f4e790d39d3cf2daecd22afc0d991cb8bc9c',
+        'reference' => 'b458b2d9151d5b15cfc21590156730245efaa0c0',
         'name' => 'pedroltdias/buscador-de-cursos',
         'dev' => true,
     ),
@@ -79,7 +79,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5682f4e790d39d3cf2daecd22afc0d991cb8bc9c',
+            'reference' => 'b458b2d9151d5b15cfc21590156730245efaa0c0',
             'dev_requirement' => false,
         ),
         'phar-io/manifest' => array(
@@ -386,6 +386,15 @@
             'install_path' => __DIR__ . '/../sebastian/version',
             'aliases' => array(),
             'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+            'dev_requirement' => true,
+        ),
+        'squizlabs/php_codesniffer' => array(
+            'pretty_version' => '3.6.2',
+            'version' => '3.6.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../squizlabs/php_codesniffer',
+            'aliases' => array(),
+            'reference' => '5e4e71592f69da17871dba6e80dd51bce74a351a',
             'dev_requirement' => true,
         ),
         'symfony/css-selector' => array(
