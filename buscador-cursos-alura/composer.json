@@ -25,5 +25,10 @@
         "phpunit/phpunit": "^9.5",
         "squizlabs/php_codesniffer": "^3.6",
         "phan/phan": "^5.3"
+    },
+    "scripts": {
+        "test": "phpunit tests\\TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src\\",
+        "phan": "phan --allow-polyfill-parser"
     }
 }
