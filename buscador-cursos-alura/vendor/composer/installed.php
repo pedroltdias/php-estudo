@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '099b8b030d81ab62cc9a2155dea7b29fe3a76412',
+        'reference' => '512c164c3c88140ccbd8008a1b96535c129e1fd4',
         'name' => 'pedroltdias/buscador-de-cursos',
         'dev' => true,
     ),
@@ -133,7 +133,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '099b8b030d81ab62cc9a2155dea7b29fe3a76412',
+            'reference' => '512c164c3c88140ccbd8008a1b96535c129e1fd4',
             'dev_requirement' => false,
         ),
         'phan/phan' => array(
