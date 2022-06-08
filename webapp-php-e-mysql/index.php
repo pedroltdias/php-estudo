@@ -33,7 +33,7 @@ $artigos = [
 <body>
     <div id="container">
         <h1>Meu Blog</h1>
-        <?php foreach($artigos as $artigo){?>
+        <?php foreach($artigos as $artigo) : ?>
         <h2>
             <a href="<?php echo $artigo['link'] ?>">
                 <?php echo $artigo['titulo']; ?>
@@ -42,7 +42,7 @@ $artigos = [
         <p>
             <?php echo $artigo['conteudo']; ?>
         </p>
-        <?php } ?>
+        <?php endforeach; ?>
     </div>
 </body>
 
