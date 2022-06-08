@@ -35,5 +35,8 @@
             "@cs",
             "@test"
         ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações rotineiras do código."
     }
 }
