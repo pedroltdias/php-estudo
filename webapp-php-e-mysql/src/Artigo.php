@@ -10,9 +10,15 @@ class Artigo
         $this->mysql = $mysql;  
     }
 
+    public function adcionar(string $titulo, string $conteudo): void 
+    {
+        $insertArtigo = $this->mysql->prepare('INSERT INTO artigos (titulo, conteudo) VALUES(?, ?);');
+        $insertArtigo->bind_param('ss', $titulo, $conteudo);
+        $insertArtigo->execute();
+    }
+
     public function exibirTodos(): array
     {
-
         $resultado = $this->mysql->query('SELECT id, conteudo, titulo FROM artigos');
 
         $artigos = $resultado->fetch_all(MYSQLI_ASSOC);
