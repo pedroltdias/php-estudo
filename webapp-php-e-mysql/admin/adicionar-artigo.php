@@ -1,3 +1,12 @@
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $_POST['titulo'];
+    $_POST['conteudo'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
