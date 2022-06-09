@@ -1,9 +1,15 @@
 <?php
 
+require '../config.php';
+require '../src/Artigo.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $_POST['titulo'];
-    $_POST['conteudo'];
+    $titulo = $_POST['titulo'];
+    $conteudo = $_POST['conteudo'];
+
+    $artigo = new Artigo($mysql);
+    $artigo->adicionar($titulo, $conteudo);
 }
 
 ?>
@@ -19,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div id="container">
         <h1>Adicionar Artigo</h1>
-        <form action="adicionar-artigo.html" method="post">
+        <form action="adicionar-artigo.php" method="post">
             <p>
                 <label for="">Digite o título do artigo</label>
                 <input class="campo-form" type="text" name="titulo" id="titulo" />
