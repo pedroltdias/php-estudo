@@ -10,6 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $artigo = new Artigo($mysql);
     $artigo->adicionar($titulo, $conteudo);
+
+    //redireciona para uma nova pagina usando get
+    header('Location: adicionar-artigo.php');
+    //interrompe a execucacao do codigo
+    die();   
 }
 
 ?>
