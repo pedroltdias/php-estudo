@@ -1,7 +1,7 @@
 <?php
 
 require 'config.php';
-include 'Artigo.php';
+include 'src/Artigo.php';
 $artigo = new Artigo($mysql);       //essa variavel vem do config.php
 $artigos = $artigo->exibirTodos();
 
