@@ -1,5 +1,6 @@
 <?php
 
+require 'config.php';
 include 'Artigo.php';
 $artigo = new Artigo();
 $artigos = $artigo->exibirTodos();
