@@ -10,7 +10,7 @@ class Artigo
         $this->mysql = $mysql;  
     }
 
-    public function adcionar(string $titulo, string $conteudo): void 
+    public function adicionar(string $titulo, string $conteudo): void 
     {
         $insertArtigo = $this->mysql->prepare('INSERT INTO artigos (titulo, conteudo) VALUES(?, ?);');
         $insertArtigo->bind_param('ss', $titulo, $conteudo);
