@@ -1,6 +1,6 @@
 <?php
 
-//string de conexao, usuario, senha, informacao extra 
-$pdo = new PDO('sqlite:banco.sqlite');
+$caminhoBanco = __DIR__ . '/banco.sqlite';
+$pdo = new PDO('sqlite:' . $caminhoBanco);
 
 echo 'Conectei';
