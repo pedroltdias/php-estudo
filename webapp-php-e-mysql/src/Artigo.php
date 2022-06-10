@@ -7,14 +7,21 @@ class Artigo
 
     public function __construct(mysqli $mysql)
     {
-        $this->mysql = $mysql;  
+        $this->mysql = $mysql;
     }
 
-    public function adicionar(string $titulo, string $conteudo): void 
+    public function adicionar(string $titulo, string $conteudo): void
     {
         $insertArtigo = $this->mysql->prepare('INSERT INTO artigos (titulo, conteudo) VALUES(?, ?);');
         $insertArtigo->bind_param('ss', $titulo, $conteudo);
         $insertArtigo->execute();
+    }
+
+    public function remover(string $id): void
+    {
+        $removerArtigo = $this->mysql->prepare('DELETE FROM artigos WHERE id = ?');
+        $removerArtigo->bind_param('s', $id);
+        $removerArtigo->execute();
     }
 
     public function exibirTodos(): array
