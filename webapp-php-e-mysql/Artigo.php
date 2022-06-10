@@ -19,10 +19,10 @@ $artigo = $obj_artigo->encontrarPorId($_GET['id']);
 <body>
     <div id="container">
         <h1>
-            <?php echo $artigo['titulo'] ?>
+            <?php echo $artigo['titulo']; ?>
         </h1>
         <p>
-            <?php echo $artigo['conteudo'] ?>
+            <?php echo nl2br($artigo['conteudo']); ?>
         </p>
         <div>
             <a class="botao botao-block" href="index.php">Voltar</a>
