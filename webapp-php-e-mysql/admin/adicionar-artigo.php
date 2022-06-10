@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //redireciona para uma nova pagina usando get
     header('Location: adicionar-artigo.php');
     //interrompe a execucacao do codigo
-    die();   
+    die();
 }
 
 ?>
