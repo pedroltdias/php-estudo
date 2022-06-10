@@ -9,6 +9,9 @@ $pdo = new PDO('sqlite:' . $databasePath);
 
 $statement = $pdo->query('SELECT * FROM students WHERE id = 1;');
 
+var_dump($statement->fetchColumn(3));   //retorna a coluna
+exit();
+
 while ($studentData = $statement->fetch(PDO::FETCH_ASSOC)) {
     $student = new Student(
         $studentData['id'],
@@ -19,7 +22,6 @@ while ($studentData = $statement->fetch(PDO::FETCH_ASSOC)) {
     echo $student->age() . PHP_EOL;
 }
 
-exit();
 
 $studentList = [];
 
