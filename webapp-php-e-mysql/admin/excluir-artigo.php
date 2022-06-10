@@ -12,7 +12,7 @@
         <h1>Você realmente deseja excluir o artigo?</h1>
         <form method="post" action="excluir-artigo.html">
             <p>
-                <input type="hidden" name="id" value="" />
+                <input type="hidden" name="id" value="<?" />
                 <button class="botao">Excluir</button>
             </p>
         </form>
