@@ -1,3 +1,11 @@
+<?php
+
+require '../config.php';
+include '../src/Artigo.php';
+$artigo = new Artigo($mysql);       //essa variavel vem do config.php
+$artigos = $artigo->exibirTodos();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,30 +18,18 @@
 <body>
     <div id="container">
         <h1>Página Administrativa</h1>
-        <div>
-            <div id="artigo-admin">
-                <p>Primeiros passos com Spring</p>
-                <nav>
-                    <a class="botao" href="admin/editar-artigo.html">Editar</a>
-                    <a class="botao" href="admin/excluir-artigo.html">Excluir</a>
-                </nav>
+        <?php foreach ($artigos as $artigo) : ?>
+            <div>
+                <div id="artigo-admin">
+                    <p><?php echo $artigo['titulo'] ?></p>
+                    <nav>
+                        <a class="botao" href="admin/editar-artigo.html?id=<?php echo $artigo['id']; ?>">Editar</a>
+                        <a class="botao" href="admin/excluir-artigo.html?id=<?php echo $artigo['id']; ?>">Excluir</a>
+                    </nav>
+                </div>
             </div>
-            <div id="artigo-admin">
-                <p>O que é Metodologia Ágil?</p>
-                <nav>
-                    <a class="botao" href="admin/editar-artigo.html">Editar</a>
-                    <a class="botao" href="admin/excluir-artigo.html">Excluir</a>
-                </nav>
-            </div>
-            <div id="artigo-admin">
-                <p>Como é o funil do Growth Hacking?</p>
-                <nav>
-                    <a class="botao" href="admin/editar-artigo.html">Editar</a>
-                    <a class="botao" href="admin/excluir-artigo.html">Excluir</a>
-                </nav>
-            </div>
-        </div>
-        <a class="botao botao-block" href="admin/adicionar-artigo.html">Adicionar Artigo</a>
+        <?php endforeach; ?>
+        <a class="botao botao-block" href="adicionar-artigo.php">Adicionar Artigo</a>
     </div>
 </body>
 

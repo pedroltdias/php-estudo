@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $artigo->adicionar($titulo, $conteudo);
 
     //redireciona para uma nova pagina usando get
-    header('Location: adicionar-artigo.php');
+    header('Location: /admin/index.php');
     //interrompe a execucacao do codigo
     die();
 }
