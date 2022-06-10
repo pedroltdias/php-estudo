@@ -2,6 +2,7 @@
 
 require '../config.php';
 require '../src/Artigo.php';
+require '../src/redireciona.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -11,10 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $artigo = new Artigo($mysql);
     $artigo->adicionar($titulo, $conteudo);
 
-    //redireciona para uma nova pagina usando get
-    header('Location: /admin/index.php');
-    //interrompe a execucacao do codigo
-    die();
+    redireciona('/admin/index.php');
 }
 
 ?>
