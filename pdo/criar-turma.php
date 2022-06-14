@@ -9,6 +9,7 @@ require_once 'vendor/autoload.php';
 $connection = ConnectionCreator::createConnection();
 $studentRepository = new PdoStudentRepository($connection);
 
+//inicio da transacao
 $connection->beginTransaction();
 
 $aStudent = new Student(
@@ -27,4 +28,7 @@ $anotherStudent = new Student(
 
 $studentRepository->save($anotherStudent);
 
-$connection->commit();
+// fim da transacao
+// $connection->commit();
+
+$connection->rollBack();
