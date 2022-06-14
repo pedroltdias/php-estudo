@@ -28,6 +28,11 @@ class PdoStudentRepository implements StudentRepository
 
     public function save(Student $student): bool
     {
+        if ($student->id() === null) {
+            return $this->insert($student);
+        }        
+
+        return $this->update($student);
     }
 
     public function insert(Student $student): bool
