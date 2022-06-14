@@ -19,7 +19,10 @@ class PdoStudentRepository implements StudentRepository
 
     public function allStudents(): array
     {
-        return;
+        $sqlQuery = 'SELECT * FROM students;';
+        $stmt = $this->connection->query($sqlQuery);
+
+        return $this->hydrateStudentList($stmt);
     }
 
     public function studentsBirthAt(DateTimeInterface $birthDate): array
