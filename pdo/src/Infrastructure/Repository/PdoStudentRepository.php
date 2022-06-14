@@ -65,7 +65,7 @@ class PdoStudentRepository implements StudentRepository
         $stmt = $this->connection->prepare($insertQuery);
 
         if ($stmt === false) {
-            throw new \RuntimeException('Erro na query do banco');
+            throw new \RuntimeException($this->connection->errorInfo()[2]);
         }
 
         $success = $stmt->execute([
