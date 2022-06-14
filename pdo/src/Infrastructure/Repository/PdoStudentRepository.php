@@ -12,7 +12,7 @@ class PdoStudentRepository implements StudentRepository
 {
     private \PDO $connection;
 
-    public function __construct() 
+    public function __construct()
     {
         $this->connection = ConnectionCreator::createConnection();
     }
@@ -24,22 +24,26 @@ class PdoStudentRepository implements StudentRepository
 
     public function studentsBirthAt(DateTimeInterface $birthDate): array
     {
-        
     }
 
     public function save(Student $student): bool
     {
-       
     }
 
-    public function insert (Student $student): bool
+    public function insert(Student $student): bool
     {
-       
     }
 
     public function update(Student $student): bool
     {
-       
+        $updateQuery = 'UPDATE students SET name = :name, birth_date = :birth_date WHERE id = :id;';
+
+        $stmt = $this->connection->prepare($updateQuery);
+        $stmt->bindValue(':name', $student->name());
+        $stmt->bindValue(':birth_date', $student->birth_date()->format('Y-m-d'));
+        $stmt->bindValue(':id', $student->id(), PDO::PARAM_INT);
+
+        return $stmt->execute();
     }
 
     public function remove(Student $student): bool
@@ -49,5 +53,4 @@ class PdoStudentRepository implements StudentRepository
 
         return $stmt->execute();
     }
-
 }
