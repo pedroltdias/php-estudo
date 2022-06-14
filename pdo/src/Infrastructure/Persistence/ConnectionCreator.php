@@ -10,6 +10,9 @@ class ConnectionCreator
     {
         $databasePath = __DIR__ . '/../../../banco.sqlite';
 
-        return new PDO('sqlite:' . $databasePath);
+        $connection = new PDO('sqlite:' . $databasePath);
+        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return $connection;
     }
 }
