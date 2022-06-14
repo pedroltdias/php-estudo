@@ -24,6 +24,20 @@ class PdoStudentRepository implements StudentRepository
 
     public function studentsBirthAt(DateTimeInterface $birthDate): array
     {
+        $sqlQuery = 'SELECT * FROM students WHERE birth_date = ?;';
+        
+        $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->bindValue(1, $birthDate->format('Y-m-d'));
+        $stmt->execute();
+
+        return $this->hydrateStudentList($stmt);
+    }
+
+    private function hydrateStudentList(\PDOStatement $stmt): array
+    {
+
+
+
     }
 
     public function save(Student $student): bool
