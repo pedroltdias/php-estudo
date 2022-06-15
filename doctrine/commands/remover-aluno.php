@@ -9,7 +9,7 @@ $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
 $id = $argv[1];
-$aluno = $entityManager->find(Aluno::class, $id);
+$aluno = $entityManager->getReference(Aluno::class, $id);
 
 if (is_null($aluno)) {
     echo "Aluno inexistente";
