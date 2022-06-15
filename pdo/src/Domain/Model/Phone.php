@@ -14,4 +14,9 @@ class Phone
         $this->areaCode = $areaCode;
         $this->number = $number;
     }
+
+    public function formattedPhone(): string
+    {
+        return "($this->areaCode) $this->number";
+    }
 }
