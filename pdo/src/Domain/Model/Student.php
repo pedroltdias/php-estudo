@@ -58,6 +58,7 @@ class Student
         $this->phone[] = $phone;
     }
 
+    /** @return Phone[] */
     public function phones(): array
     {
         return $this->phones();

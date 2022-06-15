@@ -40,11 +40,15 @@ class PdoStudentRepository implements StudentRepository
         $studentList = [];
 
         foreach ($studentDataList as $studentData) {
-            $studentList[] = new Student(
+            $student = new Student(
                 $studentData['id'],
                 $studentData['name'],
                 new \DateTimeImmutable($studentData['birth_date'])
             );
+
+            $this->fillPhonesOf($student);
+
+            $student[] = $student;
         }
 
         return $studentList;
