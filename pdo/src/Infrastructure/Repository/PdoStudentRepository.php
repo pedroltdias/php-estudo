@@ -102,4 +102,41 @@ class PdoStudentRepository implements StudentRepository
 
         return $stmt->execute();
     }
+
+    public function studentsWithPhones(): array
+    {
+        $sqlQuery = "SELECT students.id, 
+                            students.name, 
+                            students.birth_date,
+                            phones.id AS phone_id,
+                            phones.area_code,
+                            phones.number
+                    FROM    students
+                    JOIN    phones ON students.id = phones.student_id;";
+
+        $stmt = $this->connection->query($sqlQuery);
+        $result = $stmt->fetchAll();
+        $studentList = [];
+
+        foreach ($result as $row) {
+            //Se o estudante não existir no array, cria um novo estudante e o adiciona ao array
+            if (!array_key_exists($row['id'], $studentList)) {
+                $studentList[$row['id']] = new Student(
+                    $row['id'],
+                    $row['name'],
+                    new \DateTimeImmutable($row['birth_date'])
+                );
+            }
+
+            //Se o estudante já existir, apenas adiciona o telefone ao estudante existente, assim evita-se que vários alunos iguais, mas com numeros diferentes, sejam criados
+            $phone = new Phone(
+                $row['phone_id'],
+                $row['area_code'],
+                $row['number']
+            );
+            $studentList[$row['id']->addPhone($phone)];
+        }
+
+        return $studentList;
+    }
 }
