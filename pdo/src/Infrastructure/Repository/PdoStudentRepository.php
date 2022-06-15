@@ -134,7 +134,7 @@ class PdoStudentRepository implements StudentRepository
                 $row['area_code'],
                 $row['number']
             );
-            $studentList[$row['id']->addPhone($phone)];
+            $studentList[$row['id']]->addPhone($phone);
         }
 
         return $studentList;

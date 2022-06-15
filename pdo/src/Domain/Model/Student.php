@@ -8,7 +8,7 @@ class Student
     private string $name;
     private \DateTimeInterface $birthDate;
     /** @var Phone[] */
-    private array $phones;
+    private array $phones = [];
 
     public function __construct(?int $id, string $name, \DateTimeInterface $birthDate)
     {
