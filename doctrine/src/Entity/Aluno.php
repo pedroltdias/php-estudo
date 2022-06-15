@@ -2,9 +2,20 @@
 
 namespace Alura\Doctrine\Entity;
 
+/**
+ * @Entity 
+ */
 class Aluno
 {
+    /**
+     * @Id
+     * @GeneratedValue
+     * @Column(type="integer")
+     */
     private int $id;
+    /**
+     * @Column(type="string")
+     */
     private string $nome;
 
     public function getId(): int
