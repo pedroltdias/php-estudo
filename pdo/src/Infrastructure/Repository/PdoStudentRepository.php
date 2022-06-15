@@ -55,7 +55,7 @@ class PdoStudentRepository implements StudentRepository
         return $studentList;
     }
 
-    public function fillPhonesOf (Student $student): void
+    private function fillPhonesOf (Student $student): void
     {
         $sqlQuery = 'SELECT id, area_code, number FROM phones WHERE student_id = ?';
         $stmt = $this->connection->prepare($sqlQuery);
