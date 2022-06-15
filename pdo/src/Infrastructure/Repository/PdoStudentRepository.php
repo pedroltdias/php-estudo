@@ -49,7 +49,7 @@ class PdoStudentRepository implements StudentRepository
 
             $this->fillPhonesOf($student);
 
-            $student[] = $student;
+            $studentList[] = $student;
         }
 
         return $studentList;
