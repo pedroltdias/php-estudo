@@ -2,6 +2,8 @@
 
 namespace Alura\Doctrine\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity 
  */
@@ -17,6 +19,12 @@ class Aluno
      * @Column(type="string")
      */
     private string $nome;
+    private $telefones;
+
+    public function __construct()
+    {
+        $this->telefones = new ArrayCollection();
+    }
 
     public function getId(): int
     {
@@ -31,5 +39,10 @@ class Aluno
     public function setNome($nome): void
     {
         $this->nome = $nome;
+    }
+
+    public function addTelefone(Telefone $telefone)
+    {
+        $this->telefones->add($telefone);
     }
 }
