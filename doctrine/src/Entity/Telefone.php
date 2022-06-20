@@ -17,6 +17,10 @@ class Telefone
      * @Column (type="string")
      */
     private string $numero;
+    /**
+     * @ManyToOne (targetEntity="Aluno")
+     */
+    private $aluno;
 
     public function getId(): int
     {
