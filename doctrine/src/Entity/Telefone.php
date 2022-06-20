@@ -36,4 +36,14 @@ class Telefone
     {
         $this->numero = $numero;
     }
+
+    public function getAluno(): Aluno
+    {
+        return $this->aluno;
+    }
+
+    public function setAluno(Aluno $aluno): void
+    {
+        $this->aluno = $aluno;
+    }
 }
