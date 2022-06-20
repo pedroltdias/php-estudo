@@ -21,7 +21,7 @@ class Aluno
      */
     private string $nome;
     /**
-     * @OneToMany(targetEntity="Telefone", mappedBy="aluno")
+     * @OneToMany(targetEntity="Telefone", mappedBy="aluno", cascade={"remove", "persist"})
      */
     private $telefones;
 
