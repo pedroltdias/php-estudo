@@ -3,6 +3,7 @@
 namespace Alura\Doctrine\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @Entity 
@@ -19,6 +20,9 @@ class Aluno
      * @Column(type="string")
      */
     private string $nome;
+    /**
+     * @OneToMany(targetEntity="Telefone")
+     */
     private $telefones;
 
     public function __construct()
@@ -44,5 +48,10 @@ class Aluno
     public function addTelefone(Telefone $telefone)
     {
         $this->telefones->add($telefone);
+    }
+
+    public function getTelefones(): Collection
+    {
+        return $this->telefones;
     }
 }
