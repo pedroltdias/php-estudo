@@ -3,12 +3,16 @@
 use Alura\Doctrine\Entity\Aluno;
 use Alura\Doctrine\Entity\Telefone;
 use Alura\Doctrine\Helper\EntityManagerFactory;
+use Doctrine\DBAL\Logging\DebugStack;
 
 require_once 'vendor/autoload.php';
 
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 $alunosRepository = $entityManager->getRepository(Aluno::class);
+
+$debugStack = new DebugStack();
+$entityManager->getConfiguration()->setSQLLogger($debugStack);
 
 $alunos = $alunosRepository->findAll();
 
@@ -30,3 +34,5 @@ foreach ($alunos as $aluno) {
     }
     echo PHP_EOL;
 }
+
+print_r($debugStack);
