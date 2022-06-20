@@ -63,6 +63,9 @@ class Aluno
 
     public function addCurso (Curso $curso)
     {
+        if($this->cursos->contains($curso)) {
+            return;
+        }
         $this->cursos->add($curso);
         $curso->addAluno($this);
     }
