@@ -20,7 +20,7 @@ class Curso
      */
     private $nome;
     /**
-     * @ManyToMany (targetEntity="Aluno")
+     * @ManyToMany (targetEntity="Aluno", inversedBy="cursos")
      */
     private $alunos;
 

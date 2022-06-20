@@ -24,10 +24,15 @@ class Aluno
      * @OneToMany(targetEntity="Telefone", mappedBy="aluno", cascade={"remove", "persist"})
      */
     private $telefones;
+    /**
+     * @ManyToMany (targetEntity="Aluno", mappedBy="alunos")
+     */
+    private $cursos;
 
     public function __construct()
     {
         $this->telefones = new ArrayCollection();
+        $this->cursos = new ArrayCollection();
     }
 
     public function getId(): int
@@ -54,5 +59,10 @@ class Aluno
     public function getTelefones(): Collection
     {
         return $this->telefones;
+    }
+
+    public function addCurso (Curso $curso)
+    {
+        $this->cursos->add($curso);
     }
 }
