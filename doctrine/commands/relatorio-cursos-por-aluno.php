@@ -26,6 +26,7 @@ foreach ($alunos as $aluno) {
     echo "Telefones: " . implode(', ', $telefones) . PHP_EOL;
     echo "Cursos:" . PHP_EOL;
     foreach ($cursos as $curso) {
-        echo "\t[{$curso->getId()}], [{$curso->getNome()}]" . PHP_EOL;
+        echo "\t[{$curso->getId()}] - [{$curso->getNome()}]" . PHP_EOL;
     }
+    echo PHP_EOL;
 }
