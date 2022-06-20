@@ -8,19 +8,25 @@ require_once 'vendor/autoload.php';
 
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
+$alunosRepository = $entityManager->getRepository(Aluno::class);
 
-$alunoRepository = $entityManager->getRepository(Aluno::class);
+$alunos = $alunosRepository->buscaCursosPorAluno();
 
-$alunoList = $alunoRepository->findAll();
-
-foreach ($alunoList as $aluno) {
-    //busca-se telefones do aluno, utiliza-se o metodo map do doctrine, o qual recebe, pelo retorno, o numero de telefone, em seguida passa-se o metodo toArray, o qual junta todos os telefones devolvidos em um array
+foreach ($alunos as $aluno) {
     $telefones = $aluno
         ->getTelefones()
-        ->map(function (Telefone $telefone){
+        ->map(function (Telefone $telefone) {
             return $telefone->getNumero();
         })
         ->toArray();
+
+    $cursos = $aluno->getCursos();
+
     echo "[{$aluno->getId()}]: {$aluno->getNome()}" . PHP_EOL;
-    echo "Telefones: " . implode(', ', $telefones). PHP_EOL;
+    echo "Telefones: " . implode(', ', $telefones) . PHP_EOL;
+    echo "Cursos:" . PHP_EOL;
+    foreach ($cursos as $curso) {
+        echo "\t[{$curso->getId()}] - [{$curso->getNome()}]" . PHP_EOL;
+    }
+    echo PHP_EOL;
 }

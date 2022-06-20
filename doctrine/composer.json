@@ -3,6 +3,7 @@
         "doctrine/orm": "^2.12",
         "doctrine/dbal": "^2.13",
         "doctrine/annotations": "^1.13",
+        "doctrine/migrations": "^2.0",
         "symfony/yaml": "^5.4",
         "symfony/cache": "^5.4"
     },
