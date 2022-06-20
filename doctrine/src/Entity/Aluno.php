@@ -25,7 +25,7 @@ class Aluno
      */
     private $telefones;
     /**
-     * @ManyToMany (targetEntity="Aluno", mappedBy="alunos")
+     * @ManyToMany (targetEntity="Curso", mappedBy="alunos")
      */
     private $cursos;
 
