@@ -48,6 +48,7 @@ class Aluno
     public function addTelefone(Telefone $telefone)
     {
         $this->telefones->add($telefone);
+        $telefone->setAluno($this);
     }
 
     public function getTelefones(): Collection
