@@ -64,5 +64,6 @@ class Aluno
     public function addCurso (Curso $curso)
     {
         $this->cursos->add($curso);
+        $curso->addAluno($this);
     }
 }
