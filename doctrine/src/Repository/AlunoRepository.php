@@ -9,10 +9,12 @@ class AlunoRepository extends EntityRepository
 {
     public function buscaCursosPorAluno()
     {
-        $classeAluno = Aluno::class;
-        $entityManager = $this->getEntityManager();
-        $dql = "SELECT a, t, c FROM $classeAluno a JOIN a.telefones t JOIN a.cursos c";
-        $query = $entityManager->createQuery($dql);
+        $query = $this->createQueryBuilder('a')
+            ->join('a.telefones', 't')
+            ->join('a.cursos', 'c')
+            ->addSelect('t')
+            ->addSelect('c')
+            ->getQuery();
 
         return $query->getResult();
     }
