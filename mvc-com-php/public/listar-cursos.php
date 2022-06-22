@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 $entityManager = (new \Alura\Cursos\Infra\EntityManagerCreator())->getEntityManager();
 $repositorioDeCursos = $entityManager->getRepository(\Alura\Cursos\Entity\Curso::class);
