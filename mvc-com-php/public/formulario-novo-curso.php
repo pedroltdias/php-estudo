@@ -3,25 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Criar Novo Curso</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>Listar cursos</h1>
+            <h1>Novo Curso</h1>
         </div>
 
-        <a href="formulario-novo-curso.php" class="btn btn-primary mb-2">Novo Curso</a>
+        <form action="">
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input type="text" id="descricao" name="descricao" class="form-control">
+            </div>
+            <button class="btn btn-primary">Salvar</button>
+        </form>
 
-        <ul class="list-group">
-            <?php foreach ($cursos as $curso) : ?>
-                <li class="list-group-item">
-                    <?= $curso->getDescricao(); ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
     </div>
 </body>
 
