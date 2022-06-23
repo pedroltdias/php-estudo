@@ -11,7 +11,6 @@ switch ($_SERVER['PATH_INFO']) {
         $controlador = new ListarCursos();
         $controlador->processaRequisicao();
         break;
-
     case '/formulario-novo-curso':
         $controlador = new FormularioInsercao();
         $controlador->processaRequisicao();
