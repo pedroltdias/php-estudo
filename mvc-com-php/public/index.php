@@ -6,6 +6,8 @@ use Alura\Cursos\Controller\FormularioInsercao;
 use Alura\Cursos\Controller\ListarCursos;
 use Alura\Cursos\Controller\Persistencia;
 
+$rotas = require __DIR__ . '/../config/routes.php';
+
 switch ($_SERVER['PATH_INFO']) {
     case '/listar-cursos':
         $controlador = new ListarCursos();
