@@ -12,7 +12,7 @@ class Exclusao implements InterfaceControladorRequisicao
             FILTER_VALIDATE_INT
         );
 
-        if ($id === false) {
+        if (is_null($id) || $id === false) {
             header('Location: /listar-cursos');
         }
     }
