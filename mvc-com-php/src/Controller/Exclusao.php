@@ -25,11 +25,13 @@ class Exclusao implements InterfaceControladorRequisicao
 
         if (is_null($id) || $id === false) {
             header('Location: /listar-cursos');
+            return;
         }
 
         $curso = $this->entityManager->getReference(Curso::class, $id);
         $this->entityManager->remove($curso);
         $this->entityManager->flush();
+        header('Location: /listar-cursos');
     }
 
 }
