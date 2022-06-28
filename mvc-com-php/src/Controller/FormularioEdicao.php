@@ -5,24 +5,25 @@ namespace Alura\Cursos\Controller;
 use Alura\Cursos\Entity\Curso;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
-class Formulario implements InterfaceControladorRequisicao
+class FormularioEdicao implements InterfaceControladorRequisicao
 {
+    /**
+     * @var \Doctrine\Common\Persistence\ObjectRepository
+     */
     private $repositorioCursos;
 
-    public function __construct() 
+    public function __construct()
     {
-        $entityManager = (new EntityManagerCreator())
-            ->getEntityManager();
-        $this->repositorioCursos = $entityManager
-            ->getRepository(Curso::class);
+        $entityManager = (new EntityManagerCreator())->getEntityManager();
+        $this->repositorioCursos = $entityManager->getRepository(Curso::class);
     }
 
     public function processaRequisicao(): void
     {
         $id = filter_input(
-                INPUT_GET,
-                'id',
-                FILTER_VALIDATE_INT
+            INPUT_GET,
+            'id',
+            FILTER_VALIDATE_INT
         );
 
         if (is_null($id) || $id === false) {
@@ -31,7 +32,7 @@ class Formulario implements InterfaceControladorRequisicao
         }
 
         $curso = $this->repositorioCursos->find($id);
+        $titulo = 'Alterar Curso ' . $curso->getDescricao();
         require __DIR__ . '/../../view/cursos/formulario.php';
-
     }
 }
