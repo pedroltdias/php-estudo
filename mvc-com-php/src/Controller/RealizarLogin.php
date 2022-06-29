@@ -44,10 +44,12 @@ class RealizarLogin implements InterfaceControladorRequisicao
 
         if (is_null($usuario) || !$usuario->senhaEstaCorreta($senha)) {
             echo "E-mail ou senha inválidos.";
-            var_dump($usuario);
-            var_dump($senha);
+            // var_dump($usuario);
+            // var_dump($senha);
             return;
         }
+
+        $_SESSION['logado'] = true;
 
         header('Location: /listar-cursos');
     }

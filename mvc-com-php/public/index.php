@@ -12,6 +12,8 @@ if (!array_key_exists($caminho, $rotas)) {
     exit();
 }
 
+session_start();
+
 $classeControladora = $rotas[$caminho];
 /** @var InterfaceControladorRequisicao $controlador */
 $controlador = new $classeControladora();
