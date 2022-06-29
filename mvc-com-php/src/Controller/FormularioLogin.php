@@ -6,7 +6,7 @@ class FormularioLogin extends ControllerComHtml implements InterfaceControladorR
 {
     public function processaRequisicao(): void
     {
-        $this->renderizaHtml('login/formulario.php', [
+        echo $this->renderizaHtml('login/formulario.php', [
             'titulo' => 'Login'
         ]);
     }
