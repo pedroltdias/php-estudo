@@ -1,5 +1,7 @@
 <?php include __DIR__ . '/../inicio-html.php'; ?>
 
+<p>Login: bomdia@bomdia.com.br</p>
+<p>Senha: 123456</p>
 <form action="/realiza-login" method="post">
     <div class="form-group">
         <label for="email">E-mail:</label>
