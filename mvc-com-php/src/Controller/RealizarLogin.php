@@ -2,7 +2,7 @@
 
 namespace Alura\Cursos\Controller;
 
-use Alura\Armazenamento\Entity\Usuario;
+use Alura\Cursos\Entity\Usuario;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
 class RealizarLogin implements InterfaceControladorRequisicao
@@ -36,7 +36,7 @@ class RealizarLogin implements InterfaceControladorRequisicao
         $senha = filter_input(
             INPUT_POST,
             'senha',
-            FILTER_SANITIZE_STRING
+            FILTER_SANITIZE_FULL_SPECIAL_CHARS
         );
 
         $usuario = $this->repositorioDeUsuarios
@@ -44,6 +44,8 @@ class RealizarLogin implements InterfaceControladorRequisicao
 
         if (is_null($usuario) || !$usuario->senhaEstaCorreta($senha)) {
             echo "E-mail ou senha inválidos.";
+            var_dump($usuario);
+            var_dump($senha);
             return;
         }
 
