@@ -8,7 +8,7 @@
             id="descricao" 
             name="descricao" 
             class="form-control"
-            value="<?= $curso->getDescricao(); ?>">
+            value="<?= isset($curso) ? $curso->getDescricao() : ''; ?>">
     </div>
     <button class="btn btn-primary">Salvar</button>
 </form>
