@@ -31,14 +31,14 @@ class Persistencia implements InterfaceControladorRequisicao
             FILTER_VALIDATE_INT
         );
 
-        if (!is_null($id) || $id !== false) {
+        if (!is_null($id) && $id !== false) {
             $curso->setId($id);
             $this->entityManager->merge($curso);
         } else {
             $this->entityManager->persist($curso);
-            $this->entityManager->flush();
         }
 
+        $this->entityManager->flush();
 
         header('Location: /listar-cursos', true, 302);
     }
