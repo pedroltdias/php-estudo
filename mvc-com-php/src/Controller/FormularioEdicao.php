@@ -14,8 +14,10 @@ class FormularioEdicao implements InterfaceControladorRequisicao
 
     public function __construct()
     {
-        $entityManager = (new EntityManagerCreator())->getEntityManager();
-        $this->repositorioCursos = $entityManager->getRepository(Curso::class);
+        $entityManager = (new EntityManagerCreator())
+            ->getEntityManager();
+        $this->repositorioCursos = $entityManager
+            ->getRepository(Curso::class);
     }
 
     public function processaRequisicao(): void
