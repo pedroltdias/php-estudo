@@ -25,3 +25,7 @@
         <div class="jumbotron">
             <h1><?php echo $titulo; ?></h1>
         </div>
+
+    <div class="alert alert-<?= $_SESSION['tipo_mensagem']; ?>">
+        <?= $_SESSION['mensagem'] ?>
+    </div>

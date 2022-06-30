@@ -29,7 +29,9 @@ class RealizarLogin implements InterfaceControladorRequisicao
         );
 
         if (is_null($email) || $email === false) {
-            echo "E-mail digitado é inválido!";
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = "E-mail digitado é inválido!";
+            header('Location: /login');
             return;
         }
 
@@ -43,9 +45,9 @@ class RealizarLogin implements InterfaceControladorRequisicao
             ->findOneBy(['email' => $email]);
 
         if (is_null($usuario) || !$usuario->senhaEstaCorreta($senha)) {
-            echo "E-mail ou senha inválidos.";
-            // var_dump($usuario);
-            // var_dump($senha);
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = "E-mail ou senha inválidos!";
+            header('Location: /login');
             return;
         }
 
