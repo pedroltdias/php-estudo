@@ -14,9 +14,9 @@ if (!array_key_exists($caminho, $rotas)) {
 
 session_start();
 
-$ehRotaDeLogin = stripos($caminho, 'login'); 
+$ehRotaDeLogin = str_contains($caminho, 'login'); 
 
-if (!isset($_SESSION['logado']) && $ehRotaDeLogin === false) {
+if (!isset($_SESSION['logado']) && !$ehRotaDeLogin) {
     header('Location: /login');
     exit();
 }
