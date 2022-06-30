@@ -3,10 +3,13 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Usuario;
+use Alura\Cursos\Helper\FlashMessageTrait;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
 class RealizarLogin implements InterfaceControladorRequisicao
 {
+    use FlashMessageTrait;
+
     /**
      * @var \Doctrine\Common\Persistence\ObjectRepository
      */
@@ -29,7 +32,8 @@ class RealizarLogin implements InterfaceControladorRequisicao
         );
 
         if (is_null($email) || $email === false) {
-            echo "E-mail digitado é inválido!";
+            $this->defineMensagem('danger', "E-mail digitado é inválido!");
+            header('Location: /login');
             return;
         }
 
@@ -43,9 +47,8 @@ class RealizarLogin implements InterfaceControladorRequisicao
             ->findOneBy(['email' => $email]);
 
         if (is_null($usuario) || !$usuario->senhaEstaCorreta($senha)) {
-            echo "E-mail ou senha inválidos.";
-            // var_dump($usuario);
-            // var_dump($senha);
+            $this->defineMensagem('danger', "E-mail ou senha inválidos!");
+            header('Location: /login');
             return;
         }
 
