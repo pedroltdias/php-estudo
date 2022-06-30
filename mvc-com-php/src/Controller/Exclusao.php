@@ -3,10 +3,13 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Curso;
+use Alura\Cursos\Helper\FlashMessageTrait;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
 class Exclusao implements InterfaceControladorRequisicao
 {
+    use FlashMessageTrait;
+
     private $entityManager;
 
     public function __construct()
@@ -24,8 +27,7 @@ class Exclusao implements InterfaceControladorRequisicao
         );
 
         if (is_null($id) || $id === false) {
-            $_SESSION['mensagem'] = "Curso inexistente!";
-            $_SESSION['tipo_mensagem'] = 'danger';
+            $this->defineMensagem('danger', "Curso inexistente!");
             header('Location: /listar-cursos');
             return;
         }
