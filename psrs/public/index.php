@@ -24,4 +24,4 @@ if (!isset($_SESSION['logado']) && !$ehRotaDeLogin) {
 $classeControladora = $rotas[$caminho];
 /** @var InterfaceControladorRequisicao $controlador */
 $controlador = new $classeControladora();
-$controlador->processaRequisicao();
+$resposta = $controlador->processaRequisicao($request);
