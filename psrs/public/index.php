@@ -4,6 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 $caminho = $_SERVER['PATH_INFO'];
@@ -35,8 +36,11 @@ $creator = new ServerRequestCreator(
 $request = $creator->fromGlobals();
 
 $classeControladora = $rotas[$caminho];
+/** @var ContainerInterface $container*/
+$container = require __DIR__ . '/../config/dependencies.php';
+
 /** @var RequestHandlerInterface $controlador */
-$controlador = new $classeControladora();
+$controlador = $container->get($classeControladora);
 $resposta = $controlador->handle($request);
 
 foreach ($resposta->getHeaders() as $name => $values) {
