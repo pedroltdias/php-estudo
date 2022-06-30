@@ -37,7 +37,7 @@ $request = $creator->fromGlobals();
 $classeControladora = $rotas[$caminho];
 /** @var InterfaceControladorRequisicao $controlador */
 $controlador = new $classeControladora();
-$resposta = $controlador->processaRequisicao($request);
+$resposta = $controlador->handle($request);
 
 foreach ($resposta->getHeaders() as $name => $values) {
     foreach ($values as $value) {
