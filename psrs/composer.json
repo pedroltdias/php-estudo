@@ -8,6 +8,7 @@
         "doctrine/orm": "^2.6",
         "symfony/cache": "^6.1",
         "doctrine/annotations": "^1.13",
-        "psr/http-message": "^1.0"
+        "psr/http-message": "^1.0",
+        "nyholm/psr7": "^1.5"
     }
 }
