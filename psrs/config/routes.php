@@ -1,6 +1,7 @@
 <?php
 
-use Alura\Cursos\Controller\{Deslogar,
+use Alura\Cursos\Controller\{CursosEmJson,
+    Deslogar,
     Exclusao,
     FormularioEdicao,
     FormularioInsercao,
@@ -18,5 +19,6 @@ return [
     '/login' => FormularioLogin::class,
     '/realiza-login' => RealizarLogin::class,
     '/logout' => Deslogar::class,
+    '/buscarCursosEmJson' => CursosEmJson::class,
 ];
 
