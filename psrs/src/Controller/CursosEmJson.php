@@ -22,6 +22,6 @@ class CursosEmJson implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $cursos = $this->repositorioDeCursos->findAll();
-        return new Response(200, [], json_encode($cursos));
+        return new Response(200, ['Content-Type' => 'application/json'], json_encode($cursos));
     }
 }
