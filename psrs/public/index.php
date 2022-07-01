@@ -36,7 +36,7 @@ $creator = new ServerRequestCreator(
 $request = $creator->fromGlobals();
 
 $classeControladora = $rotas[$caminho];
-/** @var ContainerInterface $container*/
+/** @var ContainerInterface $container */
 $container = require __DIR__ . '/../config/dependencies.php';
 
 /** @var RequestHandlerInterface $controlador */
