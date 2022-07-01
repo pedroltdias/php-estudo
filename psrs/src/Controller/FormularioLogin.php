@@ -8,15 +8,16 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class FormularioInsercao implements RequestHandlerInterface
+class FormularioLogin implements RequestHandlerInterface
 {
     use RenderizadorDeHtmlTrait;
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $html = $this->renderizaHtml('cursos/formulario.php', [
-            'titulo' => 'Novo curso'
+        $html = $this->renderizaHtml('login/formulario.php', [
+            'titulo' => 'Login'
         ]);
+
         return new Response(200, [], $html);
     }
 }
