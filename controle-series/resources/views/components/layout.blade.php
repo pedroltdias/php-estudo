@@ -11,9 +11,11 @@
 </head>
 <body>
 
-<h1>{{ $title }}</h1>
+<div class="container">
+    <h1>{{ $title }}</h1>
 
-{{ $slot  }}
+    {{ $slot  }}
+</div>
 
 </body>
 </html>
