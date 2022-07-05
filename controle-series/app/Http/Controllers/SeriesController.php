@@ -10,7 +10,6 @@ class SeriesController extends Controller
     public function index()
     {
         $series = DB::select('SELECT nome FROM series;');
-        dd($series);
 
         return view('series.index')->with('series', $series);
     }
