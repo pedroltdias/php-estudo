@@ -20,6 +20,6 @@ class SeriesController extends Controller
         }
         $html .= '</ul>';
 
-        echo $html;
+        return $html;
     }
 }
