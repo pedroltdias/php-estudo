@@ -22,10 +22,9 @@ class SeriesController extends Controller
     public function store(Request $request)
     {
         $nomeSerie = $request->input('nome');
+
         if(DB::insert('INSERT INTO series (nome) VALUES (?)', [$nomeSerie])) {
-            return "ok";
-        } else {
-            return "deu erro";
+            return redirect('/series');
         }
     }
 }
