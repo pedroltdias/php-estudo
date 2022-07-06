@@ -14,7 +14,6 @@ class SeriesController extends Controller
         $series = Serie::query()->orderBy('nome')->get(); //Series em ordem alfabetica
 
         $mensagemSucesso = $request->session()->get('mensagem.sucesso');
-        $request->session()->forget('mensagem.sucesso');
 
         return view('series.index')->with('series', $series)
             ->with('mensagemSucesso', $mensagemSucesso);
@@ -35,7 +34,7 @@ class SeriesController extends Controller
     public function destroy(Request $request)
     {
         Serie::destroy($request->series);
-        $request->session()->put('mensagem.sucesso', 'Série removida com sucesso');
+        $request->session()->flash('mensagem.sucesso', 'Série removida com sucesso');
 
         return to_route('series.index');
     }
