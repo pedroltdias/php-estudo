@@ -13,7 +13,7 @@ class SeriesController extends Controller
 //      $series = Serie::all();
         $series = Serie::query()->orderBy('nome')->get(); //Series em ordem alfabetica
 
-        $mensagemSucesso = $request->session()->get('mensagem.sucesso');
+        $mensagemSucesso = session('mensagem.sucesso');
 
         return view('series.index')->with('series', $series)
             ->with('mensagemSucesso', $mensagemSucesso);
@@ -27,6 +27,8 @@ class SeriesController extends Controller
     public function store(Request $request)
     {
         Serie::create($request->all());
+
+        $request->session()->flash('mensagem.sucesso', 'Série adicionada com sucesso');
 
         return to_route('series.index');
     }
