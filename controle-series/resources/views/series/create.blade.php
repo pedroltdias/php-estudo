@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
     </form>
 
 </x-layout>
