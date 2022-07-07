@@ -12,6 +12,6 @@ class Serie extends Model
 
     public function temporadas()
     {
-        return $this->hasMany(Season::class, 'series.id');
+        return $this->hasMany(Season::class, 'series_id');
     }
 }

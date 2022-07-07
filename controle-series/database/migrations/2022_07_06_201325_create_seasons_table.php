@@ -16,12 +16,7 @@ return new class extends Migration
         Schema::create('seasons', function (Blueprint $table) {
             $table->id();
             $table->unsignedTinyInteger('numero');
-
             $table->foreignId('series_id')->constrained();
-
-//            A linha 20 substitui a linha 23 e 24
-//            $table->unsignedBigInteger('series_id');
-//            $table->foreign('series_id')->references('id')->on('series');
             $table->timestamps();
         });
     }
