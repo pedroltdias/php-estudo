@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedTinyInteger('numero');
+            $table->foreignId('season_id')->constrained();
         });
     }
 
