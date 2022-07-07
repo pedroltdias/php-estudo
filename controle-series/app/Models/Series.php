@@ -12,7 +12,7 @@ class Series extends Model
     protected $fillable = ['nome'];
     public $timestamps = false;
 
-    public function season()
+    public function seasons()
     {
         return $this->hasMany(Season::class, 'series_id');
     }

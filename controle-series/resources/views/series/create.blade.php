@@ -1,6 +1,6 @@
 <x-layout title="Nova Série">
 
-    <form action="route('series.store')" method="post">
+    <form action="{{ route('series.store') }}" method="post">
         @csrf
 
         <div class="row mb-3">
