@@ -10,6 +10,7 @@ class Series extends Model
 {
     use HasFactory;
     protected $fillable = ['nome'];
+    public $timestamps = false;
 
     public function season()
     {
