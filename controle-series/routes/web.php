@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('/series');
-});
+})->middleware(\App\Http\Middleware\Autenticador::class);
 
 Route::resource('/series', SeriesController::class)
     ->except(['show']);
