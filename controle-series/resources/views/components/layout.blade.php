@@ -11,6 +11,14 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ route('series.index') }}">Home</a>
+
+        <a href="{{ route('logout') }}">Sair</a>
+    </div>
+</nav>
+
 <div class="container">
     <h1>{{ $title }}</h1>
 
