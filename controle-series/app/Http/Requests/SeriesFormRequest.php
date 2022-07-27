@@ -19,12 +19,12 @@ class SeriesFormRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function rules()
     {
         return [
-            'nome' => ['required', 'min:2']
+            'nome' => ['required', 'min:2'],
         ];
     }
 }
