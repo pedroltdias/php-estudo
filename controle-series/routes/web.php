@@ -22,7 +22,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/email', function (){
-    return new \App\Mail\SeriesCreated();
+    return new \App\Mail\SeriesCreated(
+        'Série de Teste',
+        10,
+        5,
+        10
+    );
 });
 
 require __DIR__ . '/auth.php';
