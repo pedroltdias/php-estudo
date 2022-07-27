@@ -1,4 +1,4 @@
-<x-layout title="Novo Usuário">
+<x-layout title="Novo usuário">
     <form method="post">
         @csrf
         <div class="form-group">

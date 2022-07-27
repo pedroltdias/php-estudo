@@ -1,5 +1,4 @@
 <x-layout title="Nova Série">
-
     <form action="{{ route('series.store') }}" method="post">
         @csrf
 
@@ -14,9 +13,8 @@
                        value="{{ old('nome') }}">
             </div>
 
-
             <div class="col-2">
-                <label for="seasonsQty" class="form-label">N° de Temporadas:</label>
+                <label for="seasonsQty" class="form-label">Nº Temporadas:</label>
                 <input type="text"
                        id="seasonsQty"
                        name="seasonsQty"
@@ -24,9 +22,8 @@
                        value="{{ old('seasonsQty') }}">
             </div>
 
-
             <div class="col-2">
-                <label for="episodesPerSeason" class="form-label">Episodios por Temporada:</label>
+                <label for="episodesPerSeason" class="form-label">Eps / Temporada:</label>
                 <input type="text"
                        id="episodesPerSeason"
                        name="episodesPerSeason"
@@ -37,5 +34,4 @@
 
         <button type="submit" class="btn btn-primary">Adicionar</button>
     </form>
-
 </x-layout>

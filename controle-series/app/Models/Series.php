@@ -10,7 +10,6 @@ class Series extends Model
 {
     use HasFactory;
     protected $fillable = ['nome'];
-    public $timestamps = false;
 
     public function seasons()
     {
@@ -19,7 +18,7 @@ class Series extends Model
 
     protected static function booted()
     {
-        self::addGlobalScope('ordered', function (Builder $queryBuilder){
+        self::addGlobalScope('ordered', function (Builder $queryBuilder) {
             $queryBuilder->orderBy('nome');
         });
     }
