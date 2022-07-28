@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedTinyInteger('number');
             $table->foreignId('series_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

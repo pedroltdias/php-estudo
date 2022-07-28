@@ -10,21 +10,21 @@
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('series.index') }}">Home</a>
 
         @auth
-        <form action="{{ route('logout') }}" method="post">
+        <form class="" action="{{ route('logout') }}" method="post">
             @csrf
-            <button class="btn btn-link">
+            <button class="btn link-light">
                 Sair
             </button>
         </form>
         @endauth
 
         @guest
-        <a href="{{ route('login') }}">Entrar</a>
+        <a class="btn link-light" href="{{ route('login') }}">Entrar</a>
         @endguest
     </div>
 </nav>
