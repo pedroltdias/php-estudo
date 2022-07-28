@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Series extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome'];
+    protected $fillable = ['nome', 'cover'];
     public $timestamps = false;
 
     public function seasons()
