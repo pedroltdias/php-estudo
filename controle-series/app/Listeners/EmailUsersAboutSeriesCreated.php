@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Mail\SeriesCreated;
+use App\Events\SeriesCreated as SeriesCreatedEvent;
 use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -23,15 +23,15 @@ class EmailUsersAboutSeriesCreated
     /**
      * Handle the event.
      *
-     * @param  object  $event
+     * @param  SeriesCreatedEvent  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(SeriesCreatedEvent $event)
     {
         $userList = User::all();
 
         foreach ($userList as $index => $user) {
-            $email = new SeriesCreated(
+            $email = new SeriesCreatedEvent(
                 $event->seriesName,
                 $event->serieId,
                 $event->seariesSeasonsQty,
