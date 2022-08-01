@@ -22,3 +22,7 @@ Route::apiResource('/series', \App\Http\Controllers\Api\SeriesController::class)
 Route::get('/series/{series}/seasons', function (\App\Models\Series $series){
     return $series->seasons;
 });
+
+Route::get('/series/{series}/episodes', function (\App\Models\Series $series) {
+    return $series->episodes;
+});
