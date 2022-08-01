@@ -24,12 +24,8 @@ class SeriesController extends Controller
             ->json($this->seriesRepository->add($request), 201);
     }
 
-    public function show(int $series)
+    public function show(Series $series)
     {
-        $series = Series::whereId($series)
-            ->with('seasons.episodes')
-            ->first();
-
         return $series;
     }
 }
