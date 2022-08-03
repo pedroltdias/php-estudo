@@ -7,6 +7,7 @@ use Alura\Solid\Model\Curso;
 
 class Assistidor
 {
+    //Inicio do Curso de solid
     public function assisteCurso(Curso $curso)
     {
         foreach ($curso->recuperarVideos() as $video) {
