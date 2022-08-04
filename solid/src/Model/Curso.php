@@ -4,9 +4,9 @@ namespace Alura\Solid\Model;
 
 class Curso
 {
-    private $nome;
-    private $videos;
-    private $feedbacks;
+    private string $nome;
+    private array $videos;
+    private array $feedbacks;
 
     public function __construct(string $nome)
     {
