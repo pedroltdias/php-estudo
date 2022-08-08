@@ -10,8 +10,8 @@ class VideoTest extends TestCase
     public function testMakingAVideoPublicMustWork()
     {
         $video = new Video();
-        $video->checkIfVisibilityIsValidAndUpdateIt(Video::PUBLIC);
+        $video->publish();
 
-        self::assertSame(Video::PUBLIC, $video->getVisibility());
+        self::assertTrue($video->isPublic());
     }
 }
