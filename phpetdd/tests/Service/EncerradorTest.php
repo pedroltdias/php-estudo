@@ -65,4 +65,15 @@ class EncerradorTest extends TestCase
 
         $this->encerrador->encerra();
     }
+
+    public function testSoDeveEnviarLeilaoPorEmailAposFinalizado()
+    {
+        $this->enviadorEmail->expects($this->exactly(2))
+            ->method('notificarTerminoLeilao')
+            ->willReturnCallback(function (Leilao $leilao) {
+                static::assertTrue($leilao->estaFinalizado());
+            });
+
+        $this->encerrador->encerra();
+    }
 }
