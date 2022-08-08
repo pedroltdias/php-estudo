@@ -22,23 +22,17 @@ class EncerradorTest extends TestCase
         );
 
         $leilaoDao = $this->createMock(LeilaoDao::class);
-        $leilaoDao->salva($fiat147);
-        $leilaoDao->salva($variant);
+        $leilaoDao->method('recuperarNaoFinalizados')
+            ->willReturn([$fiat147, $variant]);
+        $leilaoDao->method('recuperarFinalizados')
+            ->willReturn([$fiat147, $variant]);
 
         $encerrador = new Encerrador($leilaoDao);
         $encerrador->encerra();
 
-        $leiloes = $leilaoDao->recuperarFinalizados();
+        $leiloes = [$fiat147, $variant];
         self::assertCount(2, $leiloes);
         self::assertTrue($leiloes[0]->estaFinalizado());
         self::assertTrue($leiloes[1]->estaFinalizado());
-        self::assertEquals(
-            'Fiat 147 0km',
-            $leiloes[0]->recuperarDescricao()
-        );
-        self::assertEquals(
-            'Variant 1972 0km',
-            $leiloes[1]->recuperarDescricao()
-        );
     }
 }
