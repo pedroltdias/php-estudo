@@ -7,11 +7,11 @@ use Alura\Leilao\Model\Leilao as ModelLeilao;
 
 class Leilao
 {
-    private $con;
+    private \PDO $con;
 
-    public function __construct()
+    public function __construct(\PDO $con)
     {
-        $this->con = ConnectionCreator::getConnection();
+        $this->con = $con;
     }
 
     public function salva(ModelLeilao $leilao): void

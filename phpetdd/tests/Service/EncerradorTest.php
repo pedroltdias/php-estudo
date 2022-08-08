@@ -21,7 +21,10 @@ class EncerradorTest extends TestCase
             new \DateTimeImmutable('10 days ago')
         );
 
-        $leilaoDao = $this->createMock(LeilaoDao::class);
+        //$leilaoDao = $this->createMock(LeilaoDao::class);
+        $leilaoDao = $this->getMockBuilder(LeilaoDao::class)
+            ->setConstructorArgs([new \PDO('sqlite::memory:')])
+            ->getMock();
         $leilaoDao->method('recuperarNaoFinalizados')
             ->willReturn([$fiat147, $variant]);
         $leilaoDao->method('recuperarFinalizados')
