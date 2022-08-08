@@ -10,9 +10,10 @@ use PHPUnit\Framework\TestCase;
 
 class EncerradorTest extends TestCase
 {
-    private $encerrador;
-    private $leilaoFiat147;
-    private $leilaoVariante;
+    private Encerrador $encerrador;
+    private \PHPUnit\Framework\MockObject\MockObject $enviadorEmail;
+    private Leilao $leilaoFiat147;
+    private Leilao $leilaoVariante;
 
     protected function setUp(): void
     {
@@ -38,9 +39,9 @@ class EncerradorTest extends TestCase
                 [$this->leilaoVariante]
             );
 
-        $enviadorEmail = $this->createMock(EnviadorEmail::class);
+        $this->enviadorEmail = $this->createMock(EnviadorEmail::class);
 
-        $this->encerrador = new Encerrador($leilaoDao, $enviadorEmail);
+        $this->encerrador = new Encerrador($leilaoDao, $this->enviadorEmail);
 
     }
 
@@ -54,8 +55,14 @@ class EncerradorTest extends TestCase
         self::assertTrue($leiloes[1]->estaFinalizado());
     }
 
-    /*public function testDeveContinuarOProcessamentoAoEncontrarErroAoEnviarEmail()
+    public function testDeveContinuarOProcessamentoAoEncontrarErroAoEnviarEmail()
     {
-        
-    }*/
+        $e = new \DomainException('Erro ao enviar e-mail!');
+
+        $this->enviadorEmail->expects($this->exactly(2))
+            ->method('notificarTerminoLeilao')
+            ->willThrowException($e);
+
+        $this->encerrador->encerra();
+    }
 }
