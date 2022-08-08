@@ -24,15 +24,10 @@ class AvaliadorTest extends TestCase
      */
     public function testAvaliadorDeveEncontrarOMaiorValorDeLancesEmOrdemCrescente(Leilao $leilao)
     {
-        // Arrange - Given / Preparamos o cenário do teste
-        $this->criaAvaliador();
-
-        // Act - When / Executamos o código a ser testado
         $this->leiloeiro->avalia($leilao);
 
         $maiorValor = $this->leiloeiro->getMaiorValor();
 
-        // Assert - Then / Verificamos se a saída é a esperada
         $valorEsperado = 2500;
         self::assertEquals(2500, $maiorValor);
     }
@@ -44,15 +39,10 @@ class AvaliadorTest extends TestCase
      */
     public function testAvaliadorDeveEncontrarOMenorValorDeLances(Leilao $leilao)
     {
-        // Arrange - Given / Preparamos o cenário do teste
-        $this->criaAvaliador();
-
-        // Act - When / Executamos o código a ser testado
         $this->leiloeiro->avalia($leilao);
 
         $menorValor = $this->leiloeiro->getMenorValor();
 
-        // Assert - Then / Verificamos se a saída é a esperada
         self::assertEquals(1700, $menorValor);
     }
 
@@ -63,7 +53,6 @@ class AvaliadorTest extends TestCase
      */
     public function testAvaliadorDeveBuscar3MaioresValores(Leilao $leilao)
     {
-        $this->criaAvaliador();
         $this->leiloeiro->avalia($leilao);
 
         $maiores = $this->leiloeiro->getMaioresLances();
@@ -72,6 +61,8 @@ class AvaliadorTest extends TestCase
         static::assertEquals(2000, $maiores[1]->getValor());
         static::assertEquals(1700, $maiores[2]->getValor());
     }
+
+    /* ------ DADOS -------  */
 
     public function leilaoEmOrdemCrescente()
     {
@@ -86,7 +77,7 @@ class AvaliadorTest extends TestCase
         $leilao->recebeLance(new Lance($maria, 2500));
 
         return [
-            [$leilao]
+            'ordem-crescente' => [$leilao]
         ];
     }
 
@@ -104,7 +95,7 @@ class AvaliadorTest extends TestCase
 
 
         return [
-            [$leilao]
+            'ordem-decrescente' => [$leilao]
         ];
     }
 
@@ -122,7 +113,7 @@ class AvaliadorTest extends TestCase
 
 
         return [
-            [$leilao]
+            'ordem-aleatoria' => [$leilao]
         ];
     }
 
