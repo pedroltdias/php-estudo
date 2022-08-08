@@ -1,2 +1,4 @@
-vendor/
 .idea/
+vendor/
+.phpunit.result.cache
+testdox.txt
