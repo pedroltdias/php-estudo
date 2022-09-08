@@ -4,3 +4,5 @@
    1. Tell, Don't Ask
 2. Ter apenas 1 nível de identação.
 3. Nunca utilizar ELSE.
+4. Envolva seus tipos primitivos (caso eles tenham comportamento).
+5. 
