@@ -11,7 +11,7 @@ class Student
 {
     private Email $email;
     private DateTimeInterface $bd;
-    private Map $watchedVideos;
+    private WatchedVideos $watchedVideos;
     private string $fName;
     private string $lName;
     public string $street;
@@ -23,7 +23,7 @@ class Student
 
     public function __construct(string $email, DateTimeInterface $bd, string $fName, string $lName, string $street, string $number, string $province, string $city, string $state, string $country)
     {
-        $this->watchedVideos = new Map();
+        $this->watchedVideos = new WatchedVideos();
         $this->$email = $email;
         $this->bd = $bd;
         $this->fName = $fName;
@@ -53,7 +53,7 @@ class Student
 
     public function watch(Video $video, DateTimeInterface $date)
     {
-        $this->watchedVideos->put($video, $date);
+        $this->watchedVideos->add($video, $date);
     }
 
     public function hasAccess(): bool
@@ -62,9 +62,7 @@ class Student
             return true;
         }
 
-        $this->watchedVideos->sort(fn(DateTimeInterface $dateA, DateTimeInterface $dateB) => $dateA <=> $dateB);
-        /** @var DateTimeInterface $firstDate */
-        $firstDate = $this->watchedVideos->first()->value;
+        $firstDate = $this->watchedVideos->dateOfFirstVideo();
         $today = new \DateTimeImmutable();
 
         return $firstDate->diff($today)->days < 90;
